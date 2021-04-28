@@ -1,5 +1,5 @@
 html {
-  font-size: 15px;
+  font-size: 20px;
   background-color: aliceblue;
   color: navy;
   font-family: monospace;
@@ -19,7 +19,29 @@ body {
   width: 600px;
 }
 
-#container {
+#screen-container {
+  height: 60px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 8px;
+  background-color:rgb(122, 122, 122);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 0 0 2px black;
+  margin-top: 10px;
+}
+
+#screen-container > #screen {
+  box-sizing: border-box;
+  border: 5px solid rgba(128, 128, 128, 0.514);
+  height: 50px;
+  margin: 5px 5px 5px 5px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px black;
+}
+
+#button-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -29,12 +51,13 @@ body {
   margin: 0 auto;
   padding: 8px;
   background-color:rgb(122, 122, 122);
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   box-shadow: 0 0 0 2px black;
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
-#container > .number-buttons {
+#button-container > .number-buttons {
   box-sizing: border-box;
   border: 3px solid rgba(128, 128, 128, 0.514);
   width: 50px;
@@ -43,9 +66,10 @@ body {
   outline-width: 2px;
   outline-color: black;
   margin: 5px 5px 5px 5px;
+  font-size: 17px;
 }
 
-#container > .operator-buttons1 {
+#button-container > .operator-buttons1 {
   box-sizing: border-box;
   border: 3px solid rgba(107, 107, 148, 0.575);
   width: 50px;
@@ -56,9 +80,10 @@ body {
   margin: 4px 5px 4px 5px;
   background-color: rgb(42, 42, 71);
   color: white;
+  font-size: 17px;
 }
 
-#container > .operator-buttons2 {
+#button-container > .operator-buttons2 {
   box-sizing: border-box;
   border: 3px solid rgba(107, 107, 148, 0.575);
   width: 50px;
@@ -69,9 +94,10 @@ body {
   margin: 4px 5px 4px 5px;
   background-color: rgb(42, 42, 71);
   color: white;
+  font-size: 17px;
 }
 
-#container > .clear-buttons {
+#button-container > .clear-buttons {
   box-sizing: border-box;
   border: 3px solid rgba(128, 128, 128, 0.514);
   width: 50px;
@@ -81,4 +107,6 @@ body {
   outline-color: black;
   margin: 4px 5px 4px 5px;
   background-color: orange;
+  font-size: 17px;
 }
+
