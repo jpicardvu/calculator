@@ -28,3 +28,43 @@ function factorial(num) {
   }
   return runTotal;
 }
+
+function operate(operator, num1, num2) {
+// get operator from within html button string on click
+  switch(operator) {
+    case '+':
+      add(num1,num2);
+      break;
+    case '-':
+      subtract(num1, num2);
+      break;
+    case '×':
+      multiply(num1, num2);
+      break;
+    case '÷':
+      divide(num1, num2);
+      break;
+    case '^':
+      exponent(num1, num2);
+      break;
+    case '!':
+      factorial(num1, num2);
+      break;
+    case '%':
+      percent(num1, num2);
+      break;
+    case '=':
+      equals(num1, num2);
+      break;
+  }
+
+function clearAll() {
+
+}
+
+function backSpace() {
+
+}
+
+
+}
