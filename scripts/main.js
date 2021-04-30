@@ -1,70 +1,90 @@
-function add (num1, num2) { 
-	return num1 + num2;
-}
+let num1 = '';
+let num2 = '';
+let operator;
+let finalized;
 
-function subtract (num1, num2) {
-	return num1 - num2;
-}
+const screenContent = document.querySelector('#screen-content');
+const buttons = document.querySelectorAll('.number-buttons, .operator-buttons1, .operator-buttons2');
 
-function sum (numArray) {
-  return numArray.reduce( (runTotal, num) => runTotal + num, 0 );
-}
+buttons.forEach( (button) => {  
+  button.addEventListener('click', () => {
+    const choice = button.textContent;
+    
+    //if (button.classList.contains('select')) {
+    //  console.log('a');
+    //  button.classList.remove('select');
+    //}
+    //button.classList.add('select');
 
-function multiply (numArray) {
-  return numArray.length ? numArray.reduce( (runTotal, num) => runTotal * num) : 0;
-}
+    if ( finalized === true && isNaN(choice) ) {
+      num1 = operate(operator, num1, num2);
+      num2 = '';
+      finalized = false;
+      screenContent.textContent = num1;
+      operator = choice;
+    }
+    else if ( isNaN(choice) && num1 ) {
+      operator = choice;
+    }
+    else if (!operator) {
+      num1 = '' + num1 + choice;
+      screenContent.textContent = num1;
+    }
+    else if (operator) {
+      num2 = '' + num2 + choice;
+      screenContent.textContent = num2;
+    }
 
-function power(num1, num2) {
-  return num1 ** num2;
-} 
+    if (operator && num1 && num2) {
+      finalized = true;
+    }
 
-function factorial(num) {
-  if (num === 0) {
-    return 1;
-  }
-  let runTotal = 1;  
-  for (i = num; i > 0; i--) {
-    runTotal *= i;
-  }
-  return runTotal;
-}
+  })
+})
 
 function operate(operator, num1, num2) {
-// get operator from within html button string on click
-  switch(operator) {
+  num1 = parseInt(num1);
+  num2 = parseInt(num2);
+  switch(operator) {       
     case '+':
-      add(num1,num2);
-      break;
+      return add(num1, num2);
     case '-':
-      subtract(num1, num2);
-      break;
+      return subtract(num1, num2);
     case '×':
-      multiply(num1, num2);
-      break;
+      return multiply(num1, num2);
     case '÷':
-      divide(num1, num2);
-      break;
+      return divide(num1, num2);
     case '^':
-      exponent(num1, num2);
-      break;
-    case '!':
-      factorial(num1, num2);
-      break;
+      return exponent(num1, num2);
     case '%':
-      percent(num1, num2);
-      break;
-    case '=':
-      equals(num1, num2);
-      break;
+      return percent(num1);
+    case '!':
+      return factorial(num1);
+    }
+}  
+  
+add = (num1, num2) => num1 + num2;1
+subtract = (num1, num2) => num1 - num2;
+multiply = (num1, num2) => num1 * num2;
+divide = (num1, num2) => num1 / num2;
+exponent = (num1, num2) => num1 ** num2;
+percent = (num1) => (num1 * 0.01) + '%';
+
+function factorial(num1) {
+  if (num1 === 0) {
+    return 1;
   }
+  let runningTotal = 1;  
+  for (i = num1; i > 0; i--) {
+    runningTotal *= i;
+  }
+  return runningTotal;
+}
 
 function clearAll() {
 
 }
 
 function backSpace() {
-
-}
-
 
 }

@@ -9,11 +9,12 @@
     <header>Calculator</header>
 
     <div id="screen-container">
-      <div id="screen"></div>
+      <div id="screen">
+        <div id="screen-content"></div>
+      </div>
     </div>
       
     <div id="button-container"> 
-      <div id="test"></div>
       <button class="number-buttons">7</button>   
       <button class="number-buttons">4</button>
       <button class="number-buttons">1</button>
@@ -26,8 +27,7 @@
       <button class="number-buttons">6</button>
       <button class="number-buttons">3</button> 
       <button class="number-buttons">+/-</button>
-
-      <button class="clear-buttons">⌫</button>   
+      <button class="clear-buttons" id="backspace">⌫</button>   
       <button class="operator-buttons1">÷</button>
       <button class="operator-buttons1">×</button>
       <button class="operator-buttons1">-</button>
@@ -39,8 +39,7 @@
       <button class="operator-buttons2">=</button>
     </div>
 
-    <script src=scripts/main.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
-
 
 </html>

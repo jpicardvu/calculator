@@ -32,6 +32,9 @@ body {
 }
 
 #screen-container > #screen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   box-sizing: border-box;
   border: 5px solid rgba(128, 128, 128, 0.514);
   height: 50px;
@@ -39,6 +42,12 @@ body {
   background-color: white;
   border-radius: 3px;
   box-shadow: 0 0 0 2px black;
+  padding-right: 1%;
+}
+
+#screen > #screen-content {
+  align-self: flex-end;
+  font-size: 25px;
 }
 
 #button-container {
@@ -56,6 +65,25 @@ body {
   box-shadow: 0 0 0 2px black;
   margin-top: 2px;
 }
+
+#button-container > button {
+  opacity: 1;
+}
+
+
+/*
+.select {
+  animation-name: rocket;
+  animation-duration: 1s;
+}
+
+@keyframes rocket {
+      0%  {  opacity:1; }
+      100%  {  opacity:0.6; }
+
+}
+*/
+
 
 #button-container > .number-buttons {
   box-sizing: border-box;
@@ -110,3 +138,6 @@ body {
   font-size: 17px;
 }
 
+#backspace {
+  padding-top: 4px;
+}
