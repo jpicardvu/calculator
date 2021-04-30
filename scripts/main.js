@@ -34,6 +34,10 @@ buttons.forEach( (button) => {
         screenContent.textContent = num2;
       }
     }
+    else if ( ['%','!'].includes(choice) && num1 ) {
+      num1 = operate(choice, num1, num2);
+      screenContent.textContent = num1;
+    }
     else if ( finalized === true && isNaN(choice) ) {
       num1 = operate(operator, num1, num2);
       num2 = '';
@@ -67,9 +71,9 @@ function operate(operator, num1, num2) {
       return add(num1, num2);
     case '-':
       return subtract(num1, num2);
-    case '×':
+    case '*':
       return multiply(num1, num2);
-    case '÷':
+    case '/':
       return divide(num1, num2);
     case '^':
       return exponent(num1, num2);
@@ -87,8 +91,7 @@ subtract = (num1, num2) => num1 - num2;
 multiply = (num1, num2) => num1 * num2;
 divide = (num1, num2) => num1 / num2;
 exponent = (num1, num2) => num1 ** num2;
-percent = (num1) => (num1 * 0.01) + '%';
-
+percent = (num1) => (num1 * 0.01);
 function factorial(num1) {
   if (num1 === 0) {
     return 1;
