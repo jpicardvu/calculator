@@ -9,12 +9,6 @@ const buttons = document.querySelectorAll('.number-buttons, .operator-buttons1, 
 buttons.forEach( (button) => {  
   button.addEventListener('click', () => {
     const choice = button.textContent;
-    
-    //if (button.classList.contains('select')) {
-    //  console.log('a');
-    //  button.classList.remove('select');
-    //}
-    //button.classList.add('select');
 
     if ( finalized === true && isNaN(choice) ) {
       num1 = operate(operator, num1, num2);
