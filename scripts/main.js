@@ -55,8 +55,7 @@ buttons.forEach( (button) => {
 
     if (operator && num1 && num2) {
       finalized = true;
-    }
-    
+    } 
   })
 })
 
@@ -78,10 +77,12 @@ function operate(operator, num1, num2) {
       return percent(num1);
     case '!':
       return factorial(num1);
+    case '=':
+      return num1;
     }
 }  
   
-add = (num1, num2) => num1 + num2;1
+add = (num1, num2) => num1 + num2;
 subtract = (num1, num2) => num1 - num2;
 multiply = (num1, num2) => num1 * num2;
 divide = (num1, num2) => num1 / num2;
@@ -98,15 +99,3 @@ function factorial(num1) {
   }
   return runningTotal;
 }
-
-function clearAll() {
-}
-
-function backSpace() {
-}
-/*
-if (choice === '⌫') {
-  console.log('1')
-  num2 = num2.slice(0, -1);
-  screenContent.textContent = num2;
-}*/
