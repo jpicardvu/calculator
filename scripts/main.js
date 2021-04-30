@@ -4,13 +4,37 @@ let operator;
 let finalized;
 
 const screenContent = document.querySelector('#screen-content');
-const buttons = document.querySelectorAll('.number-buttons, .operator-buttons1, .operator-buttons2');
+const buttons = document.querySelectorAll('button');
+
+document.addEventListener('keydown', (e) => {
+  if (!e.repeat)
+    console.log(`Key "${e.key}" pressed  [event: keydown]`);
+  else
+    console.log(`Key "${e.key}" repeating  [event: keydown]`);
+});
 
 buttons.forEach( (button) => {  
   button.addEventListener('click', () => {
     const choice = button.textContent;
-
-    if ( finalized === true && isNaN(choice) ) {
+    
+    if (choice === 'AC') {
+      screenContent.textContent = '';
+      num1 = '';
+      num2 = '';
+      operator = undefined;
+      finalized = undefined;
+    }
+    else if (choice === '⌫') {
+      if (num1) {
+        num1 = num1.toString().slice(0, -1);
+        screenContent.textContent = num1;
+      }
+      else {
+        num2 = num2.toString().slice(0, -1);
+        screenContent.textContent = num2;
+      }
+    }
+    else if ( finalized === true && isNaN(choice) ) {
       num1 = operate(operator, num1, num2);
       num2 = '';
       finalized = false;
@@ -18,7 +42,7 @@ buttons.forEach( (button) => {
       operator = choice;
     }
     else if ( isNaN(choice) && num1 ) {
-      operator = choice;
+        operator = choice;
     }
     else if (!operator) {
       num1 = '' + num1 + choice;
@@ -32,7 +56,7 @@ buttons.forEach( (button) => {
     if (operator && num1 && num2) {
       finalized = true;
     }
-
+    
   })
 })
 
@@ -76,9 +100,13 @@ function factorial(num1) {
 }
 
 function clearAll() {
-
 }
 
 function backSpace() {
-
 }
+/*
+if (choice === '⌫') {
+  console.log('1')
+  num2 = num2.slice(0, -1);
+  screenContent.textContent = num2;
+}*/
